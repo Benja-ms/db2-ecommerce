@@ -3,61 +3,61 @@ use("TiendaEcommerce");
 //1-clientes (10 updates)
 
 // 1.1 agregar un nuevo metodo de pago a un cliente especifico
-db.clientes.updateOne(
+db.Clientes.updateOne(
   { id_cliente: 1 },
   { $addToSet: { tipo_pago: "MercadoPago" } }
 ); // justificacion: permite al cliente registrar una nueva forma de pago activa.
 
 // 1.2 actualizar el nombre/razon social de un cliente
-db.clientes.updateOne(
+db.Clientes.updateOne(
   { id_cliente: 2 },
   { $set: { nombre: "Cliente Actualizado 2" } }
 ); // justificacion: correccion de datos personales por solicitud del usuario.
 
 // 1.3 agregar un campo de estado 'activo' a los clientes que usan debito
-db.clientes.updateMany(
+db.Clientes.updateMany(
   { tipo_pago: "Debito" },
   { $set: { estado_cuenta: "Activo" } }
 ); // justificacion: categorizar la cuenta de clientes para campañas de marketing.
 
 // 1.4 modificar el rut de un cliente por error de digitacion
-db.clientes.updateOne(
+db.Clientes.updateOne(
   { id_cliente: 3 },
   { $set: { rut: "19888003-1" } }
 ); // justificacion: mantenimiento e integridad de la identificacion fiscal.
 
 // 1.5 asignar membresia vip a clientes especificos
-db.clientes.updateOne(
+db.Clientes.updateOne(
   { id_cliente: 5 },
   { $set: { categoria_cliente: "VIP" } }
 ); // justificacion: fidelizacion de clientes segun historial de compras.
 
 // 1.6 remover un metodo de pago descontinuado
-db.clientes.updateOne(
+db.Clientes.updateOne(
   { id_cliente: 1 },
   { $pull: { tipo_pago: "Credito" } }
 ); // justificacion: desactivacion de tarjetas vencidas o retiradas por el cliente.
 
 // 1.7 agregar email de contacto a un cliente
-db.clientes.updateOne(
+db.Clientes.updateOne(
   { id_cliente: 4 },
   { $set: { email: "cliente4@correo.cl" } }
 ); // justificacion: normalizacion de canales de comunicacion directos.
 
 // 1.8 cambiar categoria de clientes de prueba a estandar
-db.clientes.updateMany(
+db.Clientes.updateMany(
   { nombre: /Cliente de prueba/ },
   { $set: { tipo_usuario: "Estandar" } }
 ); // justificacion: configuracion masiva de perfiles para usuarios recien creados.
 
 // 1.9 agregar un arreglo de preferencias a un cliente
-db.clientes.updateOne(
+db.Clientes.updateOne(
   { id_cliente: 10 },
   { $set: { preferencias: ["Tecnologia", "Hogar"] } }
 ); // justificacion: personalizacion de recomendaciones.
 
 // 1.10 establecer fecha de ultima actualizacion de perfil
-db.clientes.updateOne(
+db.Clientes.updateOne(
   { id_cliente: 1 },
   { $set: { ultima_actualizacion: "2026-10-28" } }
 ); // justificacion: auditoria de cambios en la cuenta del cliente.
