@@ -9,7 +9,7 @@ use("TiendaEcommerce");
 // por separado los siguientes comandos en mongosh.
 // Se pueden retirar los comentarios de una línea a la vez.
 
-// db.clientes.find()
+// db.Clientes.find()
 // db.Proveedores.find()
 // db.Categorias.find()
 // db.Productos.find()
@@ -22,66 +22,66 @@ use("TiendaEcommerce");
 // ============================================================
 
 // ------------------------------------------------------------
-// 1. COLECCIÓN: clientes
+// 1. COLECCIÓN: Clientes
 // ------------------------------------------------------------
 
 // Consulta 1: buscar un cliente por su identificador.
 // Justificación: permite localizar un cliente específico.
 print("\nCLIENTES - Consulta 1");
-db.clientes.find({ id_cliente: 1 }).limit(20).forEach(printjson);
+db.Clientes.find({ id_cliente: 1 }).limit(20).forEach(printjson);
 
-// Consulta 2: buscar clientes cuyo nombre contenga "prueba".
+// Consulta 2: buscar Clientes cuyo nombre contenga "prueba".
 // Justificación: permite localizar registros de prueba por nombre.
 print("\nCLIENTES - Consulta 2");
-db.clientes.find({ nombre: /prueba/i }).limit(20).forEach(printjson);
+db.Clientes.find({ nombre: /prueba/i }).limit(20).forEach(printjson);
 
-// Consulta 3: buscar clientes con un RUT específico.
+// Consulta 3: buscar Clientes con un RUT específico.
 // Justificación: permite consultar un cliente por su RUT.
 print("\nCLIENTES - Consulta 3");
-db.clientes.find({ rut: "12345678-9" }).limit(20).forEach(printjson);
+db.Clientes.find({ rut: "12345678-9" }).limit(20).forEach(printjson);
 
-// Consulta 4: buscar clientes que acepten pago con crédito.
-// Justificación: permite identificar clientes con ese método de pago.
+// Consulta 4: buscar Clientes que acepten pago con crédito.
+// Justificación: permite identificar Clientes con ese método de pago.
 print("\nCLIENTES - Consulta 4");
-db.clientes.find({ tipo_pago: "Credito" }).limit(20).forEach(printjson);
+db.Clientes.find({ tipo_pago: "Credito" }).limit(20).forEach(printjson);
 
-// Consulta 5: buscar clientes que acepten pago con débito.
-// Justificación: permite identificar clientes que usan débito.
+// Consulta 5: buscar Clientes que acepten pago con débito.
+// Justificación: permite identificar Clientes que usan débito.
 print("\nCLIENTES - Consulta 5");
-db.clientes.find({ tipo_pago: "Debito" }).limit(20).forEach(printjson);
+db.Clientes.find({ tipo_pago: "Debito" }).limit(20).forEach(printjson);
 
-// Consulta 6: buscar clientes que acepten ambos métodos de pago.
-// Justificación: permite identificar clientes con ambas alternativas.
+// Consulta 6: buscar Clientes que acepten ambos métodos de pago.
+// Justificación: permite identificar Clientes con ambas alternativas.
 print("\nCLIENTES - Consulta 6");
-db.clientes.find({
+db.Clientes.find({
   tipo_pago: { $all: ["Debito", "Credito"] }
 }).limit(20).forEach(printjson);
 
-// Consulta 7: buscar clientes con identificador superior a 250.
+// Consulta 7: buscar Clientes con identificador superior a 250.
 // Justificación: permite consultar un rango de identificadores.
 print("\nCLIENTES - Consulta 7");
-db.clientes.find({
+db.Clientes.find({
   id_cliente: { $gt: 250 }
 }).limit(20).forEach(printjson);
 
-// Consulta 8: buscar clientes con identificador entre 100 y 200.
+// Consulta 8: buscar Clientes con identificador entre 100 y 200.
 // Justificación: permite consultar un intervalo de registros.
 print("\nCLIENTES - Consulta 8");
-db.clientes.find({
+db.Clientes.find({
   id_cliente: { $gte: 100, $lte: 200 }
 }).limit(20).forEach(printjson);
 
-// Consulta 9: buscar clientes que tengan identificador menor o igual a 50.
+// Consulta 9: buscar Clientes que tengan identificador menor o igual a 50.
 // Justificación: permite consultar los primeros registros del conjunto.
 print("\nCLIENTES - Consulta 9");
-db.clientes.find({
+db.Clientes.find({
   id_cliente: { $lte: 50 }
 }).limit(20).forEach(printjson);
 
-// Consulta 10: mostrar clientes que acepten débito y tengan ID par.
+// Consulta 10: mostrar Clientes que acepten débito y tengan ID par.
 // Justificación: combina condiciones para filtrar los resultados.
 print("\nCLIENTES - Consulta 10");
-db.clientes.find({
+db.Clientes.find({
   tipo_pago: "Debito",
   id_cliente: { $mod: [2, 0] }
 }).limit(20).forEach(printjson);

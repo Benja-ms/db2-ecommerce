@@ -1,6 +1,6 @@
 //  Eliminar los q usan debitoooo
-const clienteIds = db.clientes.find({ tipo_pago: { $size: 1, $in: ["Debito"] } }).limit(50).map (c => c._id);
-print(`Se borrarán ${clienteIds.length} clientes`);
+const clienteIds = db.Clientes.find({ tipo_pago: { $size: 1, $in: ["Debito"] } }).limit(50).map (c => c._id);
+print(`Se borrarán ${clienteIds.length} Clientes`);
 db.Clientes.deleteMany({ _id: { $in: clienteIds } });
 
 // eliminare a los q son de santiago, santiaguinos sorprendidos :o
