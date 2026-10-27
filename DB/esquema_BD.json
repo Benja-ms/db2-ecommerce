@@ -1,0 +1,90 @@
+{
+    "Clientes": [
+        {
+            "id": "Los caracteres del mongo db",
+            "id_cliente": 1,
+            "email": "cliente@ejemplo.cl",
+            "telefono": "+56912345678",
+            "rut": "12345678-9",
+            "nombre": "Glass Bv",
+            "tipo_pago": [
+                "Debito",
+                "Credito"
+            ]
+        }
+    ],
+    "Proveedores": [
+        {
+            "id": "Los caracteres del mongo db",
+            "id_proveedor": 1,
+            "rut": "12345678-9",
+            "razon_social": "Distribuidor Tecnologia SPA",
+            "contacto": {
+                "email": "ventas@ejemplo.cl",
+                "telefono": "+56912345678"
+            },
+            "direccion": {
+                "calle": "Av, Irrazaval 123",
+                "comuna": "Ñuñoa",
+                "region": "Metropolitana"
+            }
+        }
+    ],
+    "Categorias": [
+        {
+            "id": "Los caracteres del mongo db",
+            "id_categoria": 1,
+            "nombre": "Tecnologia"
+        }
+    ],
+    "Productos": [
+        {
+            "id": "Los caracteres del mongo db",
+            "id_productos": 1,
+            "nombre": "Smart Tv Led 4k",
+            "descripcion": "Television de 50 pulgadas",
+            "fecha_elab": "2026-09-24",
+            "fecha_venc": "2027-10-24",
+            "stock": 50,
+            "precio": 1,
+            "id_categoria": 1,
+            "id_proveedor": 1
+        }
+    ],
+    "Pedidos": [
+        {
+            "id": "Los caracteres del mongo db",
+            "n_pedido": 1,
+            "fecha": "2026-10-25",
+            "hora": "15:00",
+            "estado": ["pendiente", "completado", "cancelado"],
+            "monto_total": 300000,
+            "id_cliente": 1,
+            "Productos": [
+                {
+                    "id_productos": 1,
+                    "cantidad": 2,
+                    "precio_unitario": 30000
+                }
+            ]
+        }
+    ],
+    "Ordenes_compra": [
+        {
+            "id": "Los caracteres del mongo db",
+            "id_orden": 1,
+            "fecha_emision": "2026-10-25",
+            "plazo_entrega_dias": 3,
+            "estado": "enviado",
+            "id_proveedor": 1,
+            "monto_total": 100,
+            "productos_solicitados": [
+                {
+                    "id_productos": 1,
+                    "cantidad": 100,
+                    "precio_unitario": 1
+                }
+            ]
+        }
+    ]
+}
